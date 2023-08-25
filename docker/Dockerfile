@@ -57,6 +57,10 @@ ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
+# Principle of least surprise
+RUN ln -s /usr/bin/python3 /usr/bin/python
+
+# SNANA environment
 ENV SNDATA_ROOT /sndata_root
 ENV SNANA_DIR /snana/SNANA
 

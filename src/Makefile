@@ -114,9 +114,8 @@ endif
 # define libraries
 
 
-  LGSL    =  $(GSL_DIR)/$(LIB_SDIR)/libgsl.a  \
-	     $(GSL_DIR)/$(LIB_SDIR)/libgslcblas.a
-  IGSL    =  -I$(GSL_DIR)/include
+  LGSL    =  -L$(GSL_DIR)/$(LIB_SDIR) -lgsl  -lgslcblas
+  IGSL    =  -I$(GSL_DIR)/include -I$(GSL_DIR)/include/gsl
 
   LCFITSIO =  -L$(CFITSIO_DIR)/$(LIB_SDIR) -lcfitsio
   ICFITSIO =  -I/$(CFITSIO_DIR)/include
