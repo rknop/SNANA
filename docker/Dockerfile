@@ -71,7 +71,17 @@ RUN mkdir /snana/.astropy
 ENV HOME /snana
 ENV PS1 "snana$ "
 
+#Compile SNANA
+#Note: we can't use -j with make; the snana makefile
+#  uses the same temporary files in multiple steps,
+#  so they conflict with each other.
 WORKDIR /snana
 RUN git clone $SNANA_ARCHIVE \
     && cd /snana/SNANA \
-    && git checkout $SNANA_CHECKOUT
+    && git checkout $SNANA_CHECKOUT \
+    && cd src \
+    && make \
+    && cd .. \
+    && rm -rf obj/*
+
+ENV PATH="/snana/SNANA/bin:/snana/SNANA/util:${PATH}"
