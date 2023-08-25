@@ -12,6 +12,11 @@
 #  HISTORY 
 # -----------------------------------
 #
+# Aug 25 2023: RAK : change LGSL to use "-L$(GSL_DIR)/$(LIB_SDIR) -lgsl"
+#                    instead of "$(GSL_DIR)/$(LIB_SDIR)/libgsl.a" ; this allows
+#                    compilation with a linux-distribution-installed gsl
+#                    (plus, in that case, there's no need to set GSL_DIR).
+#
 # Feb 05 2021: rename sntools_fitsio.c[h] -> sntools_dataformat_fits.c[h]
 #
 # Mar 16 2021: 
